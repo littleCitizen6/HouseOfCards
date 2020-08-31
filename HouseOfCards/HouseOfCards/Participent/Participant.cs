@@ -8,21 +8,22 @@ namespace HouseOfCards.Participent
 {
     public abstract class Participant
     {
-        protected List<IOperation> allowedOperations;
+        protected List<IOperation> _allowedOperations;
         public Participant()
         {
-            allowedOperations = new List<IOperation>();
-            LoadOperations();
+            _allowedOperations = LoadOperations();
             
             
         }
 
-        private void LoadOperations()
+        private List<IOperation> LoadOperations()
         {
+            List<IOperation> operations = new List<IOperation>();
             var operationsType =  AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(a => a.GetTypes())
                 .Where(type => typeof(IOperation).IsAssignableFrom(type) && type != typeof(IOperation)).ToList();
-            operationsType.ForEach(type => allowedOperations.Add((IOperation)Activator.CreateInstance(type)));
+            operationsType.ForEach(type => operations.Add((IOperation)Activator.CreateInstance(type)));
+            return operations;
         }
 
         public abstract void MakeTurn();
