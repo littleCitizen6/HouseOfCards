@@ -9,7 +9,7 @@ namespace HouseOfCards
 {
     public class GameManeger
     {
-        const int START_PARTICIPENT_CARDS_COUNT = 5;
+        
         public IGameStateInfo Info { get; set; }
         public GameManeger(IEnumerable<Participant> participants)
         {
@@ -23,6 +23,15 @@ namespace HouseOfCards
                 Info.Participants.ToList().ForEach(participent => participent.DrawCard(this));
             }
         }
+
+        public void Run()
+        {
+            do
+            {
+
+            }while(!Info.Deck.IsEmpty && Info.Disqualifications <= DISQUALIFICATIONS_ALLOWED_COUNT && !Info.IsCompleted )
+        }
+
 
     }
 }

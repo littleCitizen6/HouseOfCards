@@ -2,6 +2,7 @@
 using HouseOfCards.Participents;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HouseOfCards.GameInfo
@@ -14,6 +15,9 @@ namespace HouseOfCards.GameInfo
         public List<CardOnHands> CardOnHands { get; set; }
         public Dictionary<Color, List<Card>> ExposedCard { get; set; }
         public Deck Deck { get; set; }
+        public bool IsCompeted => ExposedCard.Keys.ToList().FirstOrDefault(color => ExposedCard[color].Count!= )
+        public int DISQUALIFICATIONS_ALLOWED_COUNT => 5;
+        public int START_PARTICIPENT_CARDS_COUNT => 4;
 
         public BasicGameStateInfo(IEnumerable<Participant> participents)
         {

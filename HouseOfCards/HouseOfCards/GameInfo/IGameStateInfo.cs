@@ -14,5 +14,6 @@ namespace HouseOfCards.GameInfo
         List<CardOnHands> CardOnHands { get; set; }
         Deck Deck { get; set; }
         Dictionary<Color, List<Card>> ExposedCard { get; set; }
+        bool IsCompeted { get; }
     }
 }
