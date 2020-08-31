@@ -7,6 +7,7 @@ namespace HouseOfCards.Cards
 {
     public class Deck
     {
+        public bool IsEmpty => Cards.Count == 0;
         public List<Card> Cards { get; set; }
         public Deck()
         {

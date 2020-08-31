@@ -22,6 +22,7 @@ namespace HouseOfCards.GameInfo
             ExposedCard = new Dictionary<Color, List<Card>>();
             Disqualifications = 0;
             Hints = 5;
+            Deck = new Deck();
         }
     }
 }
