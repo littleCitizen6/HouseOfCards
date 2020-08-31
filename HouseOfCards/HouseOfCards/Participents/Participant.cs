@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HouseOfCards.Participent
+namespace HouseOfCards.Participents
 {
     public abstract class Participant
     {

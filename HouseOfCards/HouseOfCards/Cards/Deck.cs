@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HouseOfCards.Cards
@@ -28,6 +29,12 @@ namespace HouseOfCards.Cards
                 Cards.Add(new Card(4, (Color)i));
                 Cards.Add(new Card(5, (Color)i));
             };
+        }
+        public Card DrewCard()
+        {
+            var last = Cards.Last();
+            Cards.Remove(last);
+            return last;
         }
     }
 }
