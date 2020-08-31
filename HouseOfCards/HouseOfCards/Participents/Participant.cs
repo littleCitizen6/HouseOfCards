@@ -13,18 +13,8 @@ namespace HouseOfCards.Participents
         protected List<IOperation> _allowedOperations;
         public Participant(int id)
         {
-            _allowedOperations = LoadOperations();
+            _allowedOperations = new List<IOperation>();
             Id = id;
-        }
-
-        private List<IOperation> LoadOperations()
-        {
-            List<IOperation> operations = new List<IOperation>();
-            var operationsType = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(a => a.GetTypes())
-                .Where(type => typeof(IOperation).IsAssignableFrom(type) && type != typeof(IOperation)).ToList();
-            operationsType.ForEach(type => operations.Add((IOperation)Activator.CreateInstance(type)));
-            return operations;
         }
         public Card DrawCard(GameManeger maneger)
         {
@@ -33,7 +23,7 @@ namespace HouseOfCards.Participents
             return card;
         }
         public abstract void MakeTurn(GameManeger maneger);
-
+        
 
     }
 }

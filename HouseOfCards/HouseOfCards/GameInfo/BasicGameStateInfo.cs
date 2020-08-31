@@ -9,23 +9,23 @@ namespace HouseOfCards.GameInfo
 {
     public class BasicGameStateInfo : IGameStateInfo
     {
+        const int START_NUMBER_OF_HITS = 5;
+        const int START_NUMBER_OF_DISQUALIFICATIONS = 0;
         public int Hints { get; set; }
         public int Disqualifications { get; set; }
         public IEnumerable<Participant> Participants { get; set; }
         public List<CardOnHands> CardOnHands { get; set; }
         public Dictionary<Color, List<Card>> ExposedCard { get; set; }
         public Deck Deck { get; set; }
-        public bool IsCompeted => ExposedCard.Keys.ToList().FirstOrDefault(color => ExposedCard[color].Count!= )
-        public int DISQUALIFICATIONS_ALLOWED_COUNT => 5;
-        public int START_PARTICIPENT_CARDS_COUNT => 4;
+        public bool IsCompleted => ExposedCard.Keys.ToList().FirstOrDefault(color => ExposedCard[color].Count < 5) == null; // todo: check if work
 
         public BasicGameStateInfo(IEnumerable<Participant> participents)
         {
             Participants = participents;
             CardOnHands = new List<CardOnHands>();
             ExposedCard = new Dictionary<Color, List<Card>>();
-            Disqualifications = 0;
-            Hints = 5;
+            Disqualifications = START_NUMBER_OF_DISQUALIFICATIONS;
+            Hints = START_NUMBER_OF_HITS;
             Deck = new Deck();
         }
     }
