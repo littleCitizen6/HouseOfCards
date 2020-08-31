@@ -12,6 +12,7 @@ namespace HouseOfCards.GameInfo
         int Disqualifications { get; set; }
         IEnumerable<Participant> Participants{ get; set; }
         List<CardOnHands> CardOnHands { get; set; }
+        Deck Deck { get; set; }
         Dictionary<Color, List<Card>> ExposedCard { get; set; }
     }
 }

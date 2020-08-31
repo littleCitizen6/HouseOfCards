@@ -1,10 +1,13 @@
-﻿using System;
+﻿using HouseOfCards.GameInfo;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HouseOfCards
 {
-    class GameManeger
+    public class GameManeger
     {
+        public IGameStateInfo Info { get; set; }
+
     }
 }
